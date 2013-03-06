@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="<g:createLinkTo dir='js' file='libraries/bootstrap.min.js' />" ></script>    
     
     <script type="text/javascript" src="<g:createLinkTo dir='js' file='libraries/underscore.js' />" ></script>
-		<script type="text/javascript" src="<g:createLinkTo dir='js' file='libraries/backbone-min.js' />" ></script>	
+		<script type="text/javascript" src="<g:createLinkTo dir='js' file='libraries/backbone-0.9.1.js' />" ></script>	
 		<script type="text/javascript" src="<g:createLinkTo dir='js' file='libraries/backbone-relational-0.5.0.js' />" ></script>  	
    
 		<g:layoutHead />

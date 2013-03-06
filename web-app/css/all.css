@@ -48,14 +48,14 @@ a {
 }
 
 .shadow.left {
-    background: transparent url('../img/shadow_left.png') repeat left top;
+    background: transparent url('../images/shadow_left.png') repeat left top;
 	top: 0;
 	left: 0;
 	margin-left: -21px;
 }
 
 .shadow.right {
-    background: transparent url('../img/shadow_right.png') repeat right top;
+    background: transparent url('../images/shadow_right.png') repeat right top;
 	top: 0;
     right: 0;
     margin-right: -21px;
@@ -63,7 +63,7 @@ a {
 
 .main {
 	padding: 20px;
-    background-image: url('../img/green_bkg.png');
+    background-image: url('../images/green_bkg.png');
 }
 
 .centered {

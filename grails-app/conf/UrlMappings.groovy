@@ -12,7 +12,7 @@ class UrlMappings {
     }
 
     "/threadAPI"(controller: "threadAPI") {
-      action = [GET: "list"]
+      action = [GET: "list", POST: "save"]
     }
 
     "/threadAPI/$id"(controller: "threadAPI") {

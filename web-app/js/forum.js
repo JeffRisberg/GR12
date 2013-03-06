@@ -30,12 +30,12 @@
     // Models //////////////////////////////////////////////////////////////
         
     $.forum.Message = Backbone.RelationalModel.extend({
-        urlRoot: '/api/message',
+        urlRoot: 'messageAPI',
         idAttribute: '_id',
     });
 
     $.forum.Thread = Backbone.RelationalModel.extend({
-        urlRoot: '/api/thread',
+        urlRoot: 'threadAPI',
         idAttribute: '_id',
         relations: [{
             type: Backbone.HasMany,
@@ -49,24 +49,24 @@
     });
     
     $.forum.ThreadCollection = Backbone.Collection.extend({
-        url: '/api/thread',
+        url: 'threadAPI',
         model: $.forum.Thread,
     })
-    
+   
     // Views ///////////////////////////////////////////////////////////////
     
     // Threads list //
-    
+        
     $.forum.ThreadListView = Backbone.View.extend({
         tagName: 'div',
 
         className: 'thread_list_view',
         
-        initialize: function(){
+        initialize: function() {          
             _.bindAll(this, 'render', 'render_thread_summary', 'on_submit', 'on_thread_created', 'on_error');
             this.model.bind('reset', this.render); 
             this.model.bind('change', this.render); 
-            this.model.bind('add', this.render_thread_summary); 
+            this.model.bind('add', this.render_thread_summary);                      
         },
     
         template: _.template($('#tpl_thread_list').html()),
@@ -108,7 +108,7 @@
         on_error: function(model, response) {
             var error = $.parseJSON(response.responseText);
             this.$('.error_message').html(error.message);
-        },
+        }
     });
     
     // Thread //
@@ -170,7 +170,7 @@
                                                     text: this.$('.new_message_text').val(),
                                                     thread: this.model});
             new_message.save();
-        },
+        }
     });
     
     // Message //
@@ -199,20 +199,18 @@
             "": "show_thread_list",
             "thread/:_id/": "show_thread",
         },
-    
-        show_thread_list: function() {
+          
+        show_thread_list: function() {       
             var thread_collection = new $.forum.ThreadCollection();
-            var thread_list_view = new $.forum.ThreadListView({el: $('#content'), 
-                                                                model: thread_collection });
+            var thread_list_view = new $.forum.ThreadListView({el: $('#content'), model: thread_collection});
             thread_collection.fetch();
         },
         
-        show_thread: function(_id) {
+        show_thread: function(_id) {       
             var thread = new $.forum.Thread({_id: _id});
             var thread_view = new $.forum.ThreadView({el: $('#content'), model: thread});
             thread.fetch();
-        },
-        
+        }       
     });
     
     
@@ -221,9 +219,15 @@
     $.forum.app = null;
     
     $.forum.bootstrap = function() {
-        $.forum.app = new $.forum.Router(); 
+        $.forum.app = new $.forum.Router();         
+                
         Backbone.history.start({pushState: true});
     };
 
+    // Since we don't have routers working at this point, just carry out the show_thread_list operation
+    var thread_collection = new $.forum.ThreadCollection();   
+    var thread_list_view = new $.forum.ThreadListView({el: $('#content'), model: thread_collection});  
+    thread_collection.fetch();   
+            
 })(jQuery);
 

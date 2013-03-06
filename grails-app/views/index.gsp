@@ -3,20 +3,19 @@
 <head>
 	<title>GR12</title>
 	<meta charset="utf-8" />
-	<meta name="layout" content="main">	
-  <script type="text/javascript" src="<g:createLinkTo dir='js' file='forum.js' />" ></script> 
+	<meta name="layout" content="main">	  
 </head>
 
 <body>
 
 	<div class="container">
-        <div class="shadow left"></div>
-        <div class="main">
-            <h1>Forum</h1>
-            <div id="content"></div>
-        </div>            
-        <div class="shadow right"></div>
-    </div> 
+    <div class="shadow left"></div>
+    <div class="main">
+      <h1>Forum</h1>
+      <div id="content"></div>
+    </div>            
+    <div class="shadow right"></div>
+  </div> 
 
 <!-- Templates -->
 
@@ -62,12 +61,11 @@
     </div>
 </script>
 
-
+<script type="text/javascript" src="<g:createLinkTo dir='js' file='forum.js' />" ></script>
+ 
 <script type="text/javascript">
     (function($) {
-        alert("h");
-        $.forum.bootstrap();
-        alert("j");
+        $.forum.bootstrap();       
     })(jQuery);
 </script>
 
