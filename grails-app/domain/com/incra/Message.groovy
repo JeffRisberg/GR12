@@ -19,7 +19,7 @@ class Message {
     StringBuffer sb = new StringBuffer()
 
     sb.append("Message[author=" + author)
-    sb.append("text=" + text)
+    sb.append(", text=" + text)
     sb.append("]")
 
     sb.toString()

@@ -12,7 +12,7 @@
     <div class="shadow left"></div>
     <div class="main">
       <h1>Forum</h1>
-      <div id="content"></div>
+      <div id="content">BLASH BLASH</div>
     </div>            
     <div class="shadow right"></div>
   </div> 

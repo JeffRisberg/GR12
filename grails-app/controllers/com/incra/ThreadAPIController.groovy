@@ -14,20 +14,24 @@ class ThreadAPIController {
 
   def index = {
     println "index"
-    List<Thread> allChallenges = threadService.getAll()
-    println "" + allChallenges.size() + " threads"
-    render( allChallenges as JSON )
+    List<Thread> allThreads = threadService.getAll()
+    println "" + allThreads.size() + " threads"
+    allThreads.each { println it }
+    JSON.use('deep')
+    render( allThreads as JSON )
   }
 
   def save = {
     println "save"
     def thread = new Thread(request.JSON)
+    JSON.use('deep')
     render( thread.save() as JSON )
   }
 
   def show = {
     println "show " + params.id
     def thread = Thread.findById(params.id)
+    JSON.use('deep')
     render(thread as JSON );
   }
 
@@ -35,6 +39,7 @@ class ThreadAPIController {
     println "delete " + params.id
     def thread = Thread.findById(params.id)
     thread?.delete()
+    JSON.use('deep')
     render(thread as JSON );
   }
 
@@ -42,6 +47,7 @@ class ThreadAPIController {
     println "update " + params.id
     def thread = Thread.findById(params.id)
     bindData(thread, request.JSON)
+    JSON.use('deep')
     render(thread.save() as JSON )
   }
 }

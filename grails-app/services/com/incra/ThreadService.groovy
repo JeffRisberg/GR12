@@ -9,6 +9,7 @@ package com.incra
 class ThreadService {
 
   List<Thread> getAll() {
-    Thread.findAll()
+    List<Thread> threads = Thread.findAll()
+    threads
   }
 }
