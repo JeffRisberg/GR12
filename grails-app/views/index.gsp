@@ -11,7 +11,7 @@
 	<div class="container">
     <div class="shadow left"></div>
     <div class="main">
-      <h1>Forum</h1>
+      <h2><a href="<g:createLinkTo dir='/#' />">Forum</a></h2>
       <div id="content">BLASH BLASH</div>
     </div>            
     <div class="shadow right"></div>
